@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model users {
+  id_users         Int                @id @default(autoincrement())
+  username         String             @unique
+  password         String
+  role             String
+  penjualanBulanan penjualanBulanan[]
+  penjualanHarian  penjualanHarian[]
+}
+
+model penjualanBulanan {
+  id_penjualan_bulanan Int             @id @default(autoincrement())
+  id_users             Int
+  bulan                Int
+  tahun                Int
+  total                Int
+  hasilPrediksi        hasilPrediksi[]
+  user                 users           @relation(fields: [id_users], references: [id_users], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model penjualanHarian {
+  id_penjualan_harian Int      @id @default(autoincrement())
+  id_users            Int
+  tanggal             DateTime
+  terjual             Int
+  user                users    @relation(fields: [id_users], references: [id_users], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model hasilPrediksi {
+  id_prediksi          Int              @id @default(autoincrement())
+  id_penjualan_bulanan Int
+  hasil_prediksi       Decimal          @db.Decimal(10, 2)
+  error                Decimal          @db.Decimal(10, 2)
+  penjualanBulanan     penjualanBulanan @relation(fields: [id_penjualan_bulanan], references: [id_penjualan_bulanan], onDelete: Cascade)
+}
+
+model authentications {
+  id    Int    @id @default(autoincrement())
+  token String @unique
+}
