@@ -83,7 +83,6 @@ export const deleteMonthlySales = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
 
-    console.log("Masuk Delete")
     await monthlySalesServices.deleteMonthlySales(id);
 
     return res

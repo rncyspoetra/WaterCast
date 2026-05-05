@@ -70,8 +70,6 @@ export const getMe = createAsyncThunk("user/getMe", async (_, thunkAPI) => {
           },
         );
 
-        console.log(retry);
-
         return retry.data.data;
       } catch (refreshError) {
         thunkAPI.dispatch(LogOut());

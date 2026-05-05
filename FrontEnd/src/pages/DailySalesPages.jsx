@@ -14,6 +14,8 @@ const DailySales = () => {
 
   const { data, isLoading, isError, error } = useDailySalesQuery();
 
+  console.log(data);
+
   if (isLoading) return <LoadingHandler />;
   if (isError) return <div>Error: {error?.message}</div>;
 

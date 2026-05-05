@@ -6,12 +6,7 @@ import {
 import MainLayout from "@/layouts/MainLayout";
 
 const ErrorHandler = ({ error }) => {
-
-  console.log("Masuk ke error")
-  
   const status = error?.status || error?.response?.status;
-
-  console.log(`Status : ${error}`)
 
   if (status == "401") return <Unauthorized401 />;
   if (status == "403") return <Forbidden403 />;

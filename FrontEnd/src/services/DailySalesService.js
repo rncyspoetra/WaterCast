@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useSelector } from "react-redux";
 
 export const getDailySalesData = async (token) => {
   const res = await axios.get(`${import.meta.env.VITE_API_URL}sales/daily`, {
@@ -27,7 +26,6 @@ export const getDailySalesDataById = async (token, id) => {
 };
 
 export const deleteDailySales = async (id, token) => {
-   console.log(`ID: ${id}, Token: ${token}`)
   const res = await axios.delete(
     `${import.meta.env.VITE_API_URL}sales/daily/${id}`,
     {

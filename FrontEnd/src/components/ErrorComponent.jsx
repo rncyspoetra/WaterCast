@@ -2,7 +2,6 @@ import BaseErrorLayout from "../pages/ErrorPages";
 import { Lock, ShieldAlert, ServerCrash } from "lucide-react";
 
 export function Unauthorized401() {
-  console.log("Masuk Unauthorized");
   return (
     <BaseErrorLayout
       icon={<Lock className="w-7 h-7 text-amber-500" />}

@@ -2,15 +2,18 @@ import * as dailySalesRepository from "../repository/daily-sales.repository.js";
 import { normalizeDate, formatDateOnly } from "../utils/helper.js";
 
 export const getSalesToday = async () => {
-  const today = normalizeDate(new Date());
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
   const tomorrow = new Date(today);
-  tomorrow.setDate(today.getDate() + 1);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
   const amountSales = await dailySalesRepository.getDailySalesToday(
     today,
     tomorrow,
   );
 
-  return amountSales._sum_terjual || 0;
+  return amountSales._sum?.terjual || 0;
 };
 
 export const getLast5DailySales = async () => {
@@ -59,10 +62,7 @@ export const getInsightSales = async () => {
   const yesterday = new Date(today);
   yesterday.setDate(today.getDate() - 1);
 
-  const sales = await dailySalesRepository.getSalesGroupBy(
-    yesterday,
-    today
-  );
+  const sales = await dailySalesRepository.getSalesGroupBy(yesterday, today);
 
   const data = sales.map((sale) => ({
     tanggal: formatDateOnly(sale.tanggal),

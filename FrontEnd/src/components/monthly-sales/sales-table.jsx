@@ -50,9 +50,7 @@ const PenjualanTable = ({ data, isLoading, onEdit }) => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentData = dataTable.slice(startIndex, startIndex + itemsPerPage);
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [dataTable.length]);
+  useEffect(() => {}, [dataTable.length]);
 
   const handleDelete = async (id) => {
     deleteSales({ id });

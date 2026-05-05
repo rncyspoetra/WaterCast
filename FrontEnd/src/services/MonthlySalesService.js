@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useSelector } from "react-redux";
 
 export const getMonthlySalesData = async (token) => {
   const res = await axios.get(`${import.meta.env.VITE_API_URL}sales/monthly`, {
@@ -27,7 +26,6 @@ export const getMonthlySalesDataById = async (token, id) => {
 };
 
 export const deleteMonthlySales = async (id, token) => {
-   console.log(`ID: ${id}, Token: ${token}`)
   const res = await axios.delete(
     `${import.meta.env.VITE_API_URL}sales/monthly/${id}`,
     {

@@ -17,7 +17,7 @@ import {
   UserCog,
   ShoppingCart,
 } from "lucide-react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const data = {
   navGeneral: [
@@ -25,16 +25,19 @@ const data = {
       title: "Dashboard",
       url: "/dashboard",
       icon: <LayoutDashboardIcon />,
+      roles: ["admin", "user"],
     },
     {
       title: "Kelola Users",
       url: "/users",
       icon: <UserCog />,
+      roles: ["admin"],
     },
     {
       title: "Penjualan Harian",
       url: "/daily-sales",
       icon: <ShoppingCart />,
+      roles: ["admin", "user"],
     },
   ],
 
@@ -43,18 +46,27 @@ const data = {
       title: "Penjualan Bulanan",
       url: "/monthly-sales",
       icon: <ShoppingCart />,
+      roles: ["admin", "user"],
     },
     {
       title: "Prediksi",
       url: "/predict",
       icon: <TrendingUp />,
+      roles: ["admin"],
     },
   ],
 };
 
+const filterByRole = (items, role) => {
+  return items.filter((item) => item.roles.includes(role));
+};
+
 export function AppSidebar({ ...props }) {
-  const {user} = useSelector((state) => state.auth)
-  
+  const { user } = useSelector((state) => state.auth);
+
+  const navGeneral = filterByRole(data.navGeneral, user?.role);
+  const navForecast = filterByRole(data.navForecast, user?.role);
+
   return (
     <Sidebar collapsible="offcanvas" {...props} className="space-y-1">
       <SidebarHeader>
@@ -76,8 +88,10 @@ export function AppSidebar({ ...props }) {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navGeneral} groupLabel="GENERAL" />
-        <NavMain items={data.navForecast} groupLabel="FORECAST" />
+        <NavMain items={navGeneral} groupLabel="GENERAL" />
+        {navForecast.length > 0 && (
+          <NavMain items={navForecast} groupLabel="FORECAST" />
+        )}
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={user} />

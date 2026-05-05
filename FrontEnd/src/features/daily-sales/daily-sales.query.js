@@ -12,11 +12,6 @@ export const useDailySalesQuery = () => {
 
   return useQuery({
     queryKey: ["daily-sales", token],
-
-    queryFn: async () => {
-      const res = await api.get("sales/daily");
-      return res.data;
-    },
     queryFn: () => getDailySalesData(token),
     enabled: !!token,
   });
@@ -27,7 +22,7 @@ export const useDeleteDailySales = () => {
   const { token } = useSelector((state) => state.auth);
 
   return useMutation({
-    mutationFn: ({id}) => {
+    mutationFn: ({ id }) => {
       return deleteDailySales(id, token);
     },
 

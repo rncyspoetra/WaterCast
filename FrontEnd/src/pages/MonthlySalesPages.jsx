@@ -17,10 +17,11 @@ const MonthlySales = () => {
   if (isLoading) return <LoadingHandler />;
   if (isError) return <div>Error: {error?.message}</div>;
 
+  console.log(data);
+
   return (
     <MainLayout>
       <div className="p-6 space-y-4">
-
         <div className="flex justify-between items-center">
           <h1 className="text-xl font-bold">Penjualan Bulanan</h1>
 

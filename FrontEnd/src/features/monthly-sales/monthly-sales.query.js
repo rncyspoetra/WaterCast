@@ -22,7 +22,7 @@ export const useDeleteMonthlySales = () => {
   const { token } = useSelector((state) => state.auth);
 
   return useMutation({
-    mutationFn: ({id}) => {
+    mutationFn: ({ id }) => {
       return deleteMonthlySales(id, token);
     },
 

@@ -27,22 +27,18 @@ const PenjualanTable = ({ data, isLoading, onEdit }) => {
 
   const dataTable = data || [];
 
-  console.log(dataTable)
-
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
-  const totalPages = Math.ceil(dataTable.data.length / itemsPerPage);
+  const totalPages = Math.ceil(dataTable.length / itemsPerPage);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentData = dataTable.data.slice(startIndex, startIndex + itemsPerPage);
+  const currentData = dataTable.slice(startIndex, startIndex + itemsPerPage);
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [data]);
+  useEffect(() => {}, [dataTable.length]);
 
   const handleDelete = async (id) => {
-    deleteSales({id});
+    deleteSales({ id });
   };
 
   if (isLoading) return <LoadingHandler />;
