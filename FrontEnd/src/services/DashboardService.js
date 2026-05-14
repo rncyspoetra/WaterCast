@@ -1,15 +1,7 @@
-import axios from "axios";
+import api from "../helpers/interceptors";
 
-export const getDashboardData = async (token) => {
-  const res = await axios.get(
-    `${import.meta.env.VITE_API_URL}dashboard`,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-      withCredentials: true,
-    }
-  );
+export const getDashboardData = async () => {
+  const res = await api.get("dashboard");
 
   return res.data.data;
 };

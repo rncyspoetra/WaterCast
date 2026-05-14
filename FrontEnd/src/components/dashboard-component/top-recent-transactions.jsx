@@ -21,23 +21,23 @@ const TopRecentTransactions = ({ data }) => {
   return (
     <Card className="p-5 shadow-md ring-0 gap-3 h-full flex flex-col">
       <CardHeader className="flex flex-col items-start text-left px-3">
-        <CardTitle className="text-left font-bold text-xl text-gray-600">
+        <CardTitle className="text-left font-bold text-base md:text-xl text-gray-600">
           Top Recent Transactions
         </CardTitle>
-        <CardDescription>
+        <CardDescription className="text-xs md:text-sm">
           Overview of the latest transactions from the past 5 days.
         </CardDescription>
       </CardHeader>
       <Table className="border-separate border-spacing-y-2">
         <TableHeader>
           <TableRow>
-            <TableHead className="text-gray-400 text-base font-semibold">
+            <TableHead className="text-gray-400 text-sm md:text-base font-semibold">
               No
             </TableHead>
-            <TableHead className="text-gray-400 text-base font-semibold">
+            <TableHead className="text-gray-400 text-sm md:text-base font-semibold">
               Date
             </TableHead>
-            <TableHead className="text-gray-400 text-base font-semibold">
+            <TableHead className="text-gray-400 text-sm md:text-base font-semibold">
               Sold
             </TableHead>
           </TableRow>
@@ -45,14 +45,14 @@ const TopRecentTransactions = ({ data }) => {
 
         <TableBody>
           {dataTable.map((item, index) => (
-            <TableRow key={index} className="bg-white shadow-sm rounded-lg"> 
-              <TableCell className="font-semibold text-black">
+            <TableRow key={index} className="bg-white shadow-sm rounded-lg">
+              <TableCell className="font-semibold text-sm md:text-base text-black">
                 {index + 1}
               </TableCell>
-              <TableCell className="font-semibold text-black">
+              <TableCell className="font-semibold text-sm md:text-base text-black">
                 {item.tanggal}
               </TableCell>
-              <TableCell className="font-semibold text-black">
+              <TableCell className="font-semibold text-sm md:text-base text-black">
                 {item.terjual}
               </TableCell>
             </TableRow>
@@ -61,6 +61,6 @@ const TopRecentTransactions = ({ data }) => {
       </Table>
     </Card>
   );
-}
+};
 
 export default TopRecentTransactions;

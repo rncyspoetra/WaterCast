@@ -1,12 +1,7 @@
-import axios from "axios";
+import api from "../helpers/interceptors";
 
-export const getForecastData = async (token) => {
-  const res = await axios.get(`${import.meta.env.VITE_API_URL}predict`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-    withCredentials: true,
-  });
+export const getForecastData = async () => {
+  const res = await api.get("predict");
 
   return res.data.data;
 };

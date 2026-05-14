@@ -12,7 +12,7 @@ const AccuracyInsight = ({ data }) => {
     if (mape <= 10) {
       return {
         label: "Highly Accurate",
-        badge: "bg-green-500 text-white",
+        badge: "bg-green-500 text-white text-xs md:text-sm",
         desc: `Prediksi ini termasuk dalam kategori berakurasi tinggi (Highly Accurate), karena tingkat kesalahan hanya sekitar ${mape}%. Artinya, hasil prediksi sangat mendekati kondisi sebenarnya.`,
         conclusion:
           "Prediksi sangat aman digunakan sebagai dasar utama dalam menentukan stok dan strategi penjualan.",
@@ -23,7 +23,7 @@ const AccuracyInsight = ({ data }) => {
     if (mape <= 20) {
       return {
         label: "Good Accuracy",
-        badge: "bg-blue-500 text-white",
+        badge: "bg-blue-500 text-white text-xs md:text-sm",
         desc: `Prediksi ini termasuk dalam kategori peramalan yang baik (Good Accuracy), dengan tingkat kesalahan sekitar ${mape}%. Artinya, hasil prediksi cukup mendekati kondisi sebenarnya.`,
         conclusion:
           "Masih layak digunakan sebagai acuan, namun tetap perlu sedikit pertimbangan.",
@@ -34,7 +34,7 @@ const AccuracyInsight = ({ data }) => {
     if (mape <= 50) {
       return {
         label: "Reasonable Forecast",
-        badge: "bg-yellow-500 text-black",
+        badge: "bg-yellow-500 text-black text-xs md:text-sm",
         desc: `Prediksi ini termasuk dalam kategori peramalan yang layak (Reasonable Forecast), dengan tingkat kesalahan sekitar ${mape}%. Artinya, hasil prediksi masih bisa digunakan sebagai gambaran umum, namun terdapat selisih yang cukup terlihat.`,
         conclusion:
           "Gunakan sebagai referensi tambahan, jangan dijadikan satu-satunya acuan.",
@@ -44,7 +44,7 @@ const AccuracyInsight = ({ data }) => {
 
     return {
       label: "Low Accuracy",
-      badge: "bg-red-500 text-white",
+      badge: "bg-red-500 text-white text-xs md:text-sm ",
       desc: `Prediksi ini termasuk dalam kategori berakurasi rendah, dengan tingkat kesalahan sekitar ${mape}%. Artinya, hasil prediksi cukup jauh dari kondisi sebenarnya.`,
       conclusion:
         "Sebaiknya tidak digunakan sebagai dasar pengambilan keputusan tanpa analisis tambahan.",
@@ -57,7 +57,7 @@ const AccuracyInsight = ({ data }) => {
   return (
     <Card className="shadow-sm border gap-3">
       <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle className="text-left font-bold text-xl text-gray-600">
+        <CardTitle className="font-bold text-base md:text-xl text-gray-600">
           Insight Akurasi Prediksi
         </CardTitle>
 
@@ -73,8 +73,8 @@ const AccuracyInsight = ({ data }) => {
                 MAD : {Math.round(mad)}
               </span>
               <br />
-              Prediksi rata rata meleset sekitar {Math.round(mad)}{" "}
-              galon dari penjualan sebenarnya.
+              Prediksi rata rata meleset sekitar {Math.round(mad)} galon dari
+              penjualan sebenarnya.
             </p>
           </div>
           <div className="p-3 rounded-lg border">
@@ -93,8 +93,8 @@ const AccuracyInsight = ({ data }) => {
                 MAPE / Persentase kesalahan: {mape}%
               </span>
               <br />
-              Rata-rata prediksi memiliki selisih sekitar {mape}%
-              dari penjualan sebenarnya.
+              Rata-rata prediksi memiliki selisih sekitar {mape}% dari penjualan
+              sebenarnya.
             </p>
           </div>
         </div>

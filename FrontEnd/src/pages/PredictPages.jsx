@@ -6,14 +6,12 @@ import ChartPieDonutText from "../components/forecast-component/pie-charts";
 import ForecastInsight from "../components/forecast-component/forecast-insight";
 import LoadingHandler from "../components/LoadingHandler";
 import { useForecastQuery } from "../features/forecast/forecast.query";
-import { useSelector } from "react-redux";
 import AccuracyInsight from "../components/forecast-component/accuracy-insight";
 
 const PredictPages = () => {
-  const { data, isLoading, isError, error } = useForecastQuery();
+  const { data, isLoading } = useForecastQuery();
 
   if (isLoading) return <LoadingHandler />;
-  if (isError) return <div>Error: {error?.message}</div>;
 
   return (
     <MainLayout>
@@ -30,9 +28,13 @@ const PredictPages = () => {
             <ChartPieDonutText data={data} />
           </div>
         </div>
-        <div className="flex gap-3 w-full h-auto">
-          <ForecastInsight data={data} />
-          <AccuracyInsight data={data} />
+        <div className="flex flex-col md:flex-row gap-3 w-full h-auto">
+          <div>
+            <ForecastInsight data={data} />
+          </div>
+          <div>
+            <AccuracyInsight data={data} />
+          </div>
         </div>
       </div>
     </MainLayout>

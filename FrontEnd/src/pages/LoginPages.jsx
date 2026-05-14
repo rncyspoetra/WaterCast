@@ -8,13 +8,13 @@ import logo from "../assets/Logo_Login.png";
 import { toast } from "sonner";
 import { Spinner } from "@/components/ui/spinner";
 import { useNavigate } from "react-router-dom";
-import { LoginUser, reset, getMe } from "../stores/authSlice";
+import { LoginUser, reset } from "../stores/authSlice";
 
 const LoginPages = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { user, isError, isSuccess, isLoading, message } = useSelector(
+  const { isError, isSuccess, isLoading, message } = useSelector(
     (state) => state.auth,
   );
 

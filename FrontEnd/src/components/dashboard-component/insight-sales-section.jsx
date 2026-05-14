@@ -7,7 +7,13 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
-import { TrendingUp, Minus, TrendingDown, MinusIcon, BarChart3 } from "lucide-react";
+import {
+  TrendingUp,
+  Minus,
+  TrendingDown,
+  MinusIcon,
+  BarChart3,
+} from "lucide-react";
 
 const InsightSales = ({ data }) => {
   const insight = data?.insightSales;
@@ -26,26 +32,30 @@ const InsightSales = ({ data }) => {
   };
 
   return (
-    <Card className="p-5 py-8 shadow-xl ring-0">
-      <CardHeader className="flex flex-row items-start justify-between">
-        <div className="flex gap-6">
-          <div className="flex p-4 items-center justify-center rounded-xl bg-indigo-100">
-            <BarChart3 className="h-4 w-4 text-indigo-800" />
-          </div>
+    <Card className="shadow-sm border bg-white ring-0 gap-3 h-auto">
+      <CardHeader className="flex justify-between">
+        <CardTitle className="text-base md:text-xl text-gray-600">
+          <div className="flex gap-3 md:gap-6">
+            <div>
+              <div className="flex p-3 md:p-4 items-center justify-center rounded-xl bg-indigo-100">
+                <BarChart3 className="h-4 w-4 md:h-5 md:w-5 text-indigo-800" />
+              </div>
+            </div>
 
-          <div className="flex flex-col gap-1">
-            <CardTitle className="font-bold text-lg text-gray-600">
-              Sales Insight
-            </CardTitle>
+            <div className="flex flex-col gap-1">
+              <CardTitle className="font-bold text-base md:text-xl text-gray-600">
+                Sales Insight
+              </CardTitle>
 
-            <CardDescription>
-              Overview of sales performance trends and changes.
-            </CardDescription>
+              <CardDescription className="text-xs md:text-sm">
+                Overview of sales performance trends and changes.
+              </CardDescription>
+            </div>
           </div>
-        </div>
+        </CardTitle>
 
         <span
-          className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(
+          className={`w-fit px-3 py-1 text-center rounded-full text-[10px] md:text-xs font-medium ${getStatusColor(
             insight?.status,
           )}`}
         >
@@ -54,10 +64,10 @@ const InsightSales = ({ data }) => {
       </CardHeader>
 
       <CardContent className="pt-0">
-        <div className="flex items-center gap-7 text-sm text-gray-500">
+        <div className="flex flex-row md:items-center gap-4 md:gap-7 text-sm text-gray-500">
           <div className="rounded-xl p-2">
             {insight?.direction === "Up" && (
-              <TrendingUp className="text-2xl text-green-700" />
+              <TrendingUp className="h-6 w-6 md:h-8 md:w-8 text-green-700" />
             )}
 
             {insight?.direction === "Down" && (
@@ -69,7 +79,7 @@ const InsightSales = ({ data }) => {
             )}
           </div>
 
-          <span className="text-base leading-relaxed text-gray-700">
+          <span className="text-xs md:text-base leading-relaxed text-black">
             {insight?.direction === "Up" && (
               <>
                 Penjualan mengalami peningkatan sebesar {insight?.percentage}%
@@ -97,6 +107,6 @@ const InsightSales = ({ data }) => {
       </CardContent>
     </Card>
   );
-}
+};
 
 export default InsightSales;

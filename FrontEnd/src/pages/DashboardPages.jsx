@@ -1,17 +1,15 @@
 import MainLayout from "../layouts/MainLayout";
-import SectionCards from "../components/dashboard-component/section-cards"
+import SectionCards from "../components/dashboard-component/section-cards";
 import ChartAreaInteractive from "../components/dashboard-component/chart-area-interactive";
 import TopRecentTransactions from "../components/dashboard-component/top-recent-transactions";
 import InsightSales from "../components/dashboard-component/insight-sales-section";
-import { useSelector } from "react-redux";
 import { useDashboardQuery } from "../features/dashboard/dashboard.query";
 import LoadingHandler from "../components/LoadingHandler";
 
 const DashboardPages = () => {
-  const { data, isLoading, isError, error } = useDashboardQuery();
+  const { data, isLoading } = useDashboardQuery();
 
   if (isLoading) return <LoadingHandler />;
-  if (isError) return <div>Error: {error?.message}</div>;
 
   return (
     <MainLayout>

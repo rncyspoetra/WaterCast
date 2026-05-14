@@ -39,9 +39,7 @@ const UsersTable = ({ data, isLoading, onEdit }) => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentData = dataTable.slice(startIndex, startIndex + itemsPerPage);
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [dataTable.length]);
+  useEffect(() => {}, [dataTable.length]);
 
   const handleDelete = (id) => {
     deleteUser({ id });
@@ -51,58 +49,66 @@ const UsersTable = ({ data, isLoading, onEdit }) => {
 
   return (
     <Card className="p-5 shadow-md flex flex-col gap-3 ring-0">
-      <Table>
-        <TableHeader>
-          <TableRow className="bg-gray-100 rounded-l-lg">
-            <TableHead className="text-center font-bold text-gray-500">
-              No
-            </TableHead>
-            <TableHead className="text-center font-bold text-gray-500">
-              Username
-            </TableHead>
-            <TableHead className="text-center font-bold text-gray-500">
-              Password
-            </TableHead>
-            <TableHead className="text-center font-bold text-gray-500">
-              Role
-            </TableHead>
-            <TableHead className="text-center font-bold text-gray-500">
-              Aksi
-            </TableHead>
-          </TableRow>
-        </TableHeader>
-
-        <TableBody>
-          {currentData.map((item, index) => (
-            <TableRow key={item.id_users} className="text-center">
-              <TableCell>{startIndex + index + 1}</TableCell>
-              <TableCell>{item.username}</TableCell>
-              <TableCell>********</TableCell>
-              <TableCell>
-                <span
-                  className={`px-3 py-1 rounded-sm text-xs font-medium ${
-                    ROLE_STYLE[item.role] || "bg-gray-100 text-gray-600 border"
-                  }`}
-                >
-                  {item.role}
-                </span>
-              </TableCell>
-              <TableCell className="space-x-2">
-                <Button variant="outline" onClick={() => onEdit(item)}>
-                  Edit
-                </Button>
-
-                <Button
-                  variant="destructive"
-                  onClick={() => handleDelete(item.id_users)}
-                >
-                  Delete
-                </Button>
-              </TableCell>
+      <div className="w-full overflow-x-auto">
+        <Table className="text-xs md:text-sm">
+          <TableHeader>
+            <TableRow className="bg-gray-100 rounded-l-lg">
+              <TableHead className="text-center font-bold text-gray-500">
+                No
+              </TableHead>
+              <TableHead className="text-center font-bold text-gray-500">
+                Username
+              </TableHead>
+              <TableHead className="hidden md:table-cell text-center font-bold text-gray-500">
+                Password
+              </TableHead>
+              <TableHead className="text-center font-bold text-gray-500">
+                Role
+              </TableHead>
+              <TableHead className="text-center font-bold text-gray-500">
+                Aksi
+              </TableHead>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHeader>
+
+          <TableBody>
+            {currentData.map((item, index) => (
+              <TableRow key={item.id_users} className="text-center">
+                <TableCell>{startIndex + index + 1}</TableCell>
+                <TableCell>{item.username}</TableCell>
+                <TableCell className="hidden md:table-cell">********</TableCell>
+                <TableCell>
+                  <span
+                    className={`px-3 py-1 rounded-sm text-xs font-medium ${
+                      ROLE_STYLE[item.role] ||
+                      "bg-gray-100 text-gray-600 border"
+                    }`}
+                  >
+                    {item.role}
+                  </span>
+                </TableCell>
+                <TableCell className="space-x-2">
+                  <Button
+                    variant="outline"
+                    onClick={() => onEdit(item)}
+                    className="text-xs md:text-sm px-3 md:px-4 py-2"
+                  >
+                    Edit
+                  </Button>
+
+                  <Button
+                    variant="destructive"
+                    onClick={() => handleDelete(item.id_users)}
+                    className="text-xs md:text-sm px-3 md:px-4 py-2"
+                  >
+                    Delete
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
 
       <Pagination className="mt-4">
         <PaginationContent>

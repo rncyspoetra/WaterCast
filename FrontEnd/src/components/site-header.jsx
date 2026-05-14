@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { LogOutIcon } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { LogOut } from "../stores/authSlice";
+import { LogOut, reset } from "../stores/authSlice";
 import { useNavigate } from "react-router-dom";
 
 export function SiteHeader() {
@@ -20,8 +20,12 @@ export function SiteHeader() {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
+    console.log("Klik Logout");
+    dispatch(reset());
     await dispatch(LogOut());
+
     navigate("/", { replace: true });
+    console.log("Navigate ke Login");
   };
 
   return (

@@ -16,9 +16,9 @@ const ForecastInsight = ({ data }) => {
   const isUp = diff > 0;
 
   return (
-    <Card className="shadow-sm border bg-white ring-0 gap-3">
+    <Card className="shadow-sm border bg-white ring-0 gap-3 h-auto">
       <CardHeader className="flex justify-between">
-        <CardTitle className="text-left font-bold text-xl text-gray-600">
+        <CardTitle className="font-bold text-base md:text-xl text-gray-600">
           Insight Peramalan Penjualan
         </CardTitle>
         <Badge variant={isUp ? "default" : "destructive"}>
@@ -27,7 +27,7 @@ const ForecastInsight = ({ data }) => {
       </CardHeader>
 
       <CardContent className="space-y-4">
-        <p className="text-sm leading-relaxed">
+        <p className="text-xs md:text-sm leading-relaxed">
           Berdasarkan metode{" "}
           <span className="font-medium">Single Exponential Smoothing</span>,
           diprediksi penjualan bulan berikutnya sebanyak{" "}
@@ -45,7 +45,7 @@ const ForecastInsight = ({ data }) => {
               <div className="items-center justify-center flex p-2 bg-green-200 rounded-md">
                 <TrendingUp className="w-6 h-6 text-green-600 mt-0.5" />
               </div>
-              <p>
+              <p className="text-sm">
                 Permintaan diprediksi meningkat. Disarankan menambah stok galon
                 dan memperkuat distribusi untuk menghindari kehabisan stok.
               </p>
@@ -55,7 +55,7 @@ const ForecastInsight = ({ data }) => {
               <div className="items-center justify-center flex p-2 bg-red-200 rounded-md">
                 <TrendingDown className="w-6 h-6 text-red-500 mt-0.5" />
               </div>
-              <p className="text-black font-medium">
+              <p className="text-sm">
                 Permintaan diprediksi menurun. Disarankan meningkatkan promosi
                 dan evaluasi strategi penjualan.
               </p>

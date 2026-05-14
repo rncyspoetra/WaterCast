@@ -7,6 +7,7 @@ import UsersPages from "./pages/UsersPages";
 import DailySalesPages from "./pages/DailySalesPages";
 import MonthlySalesPages from "./pages/MonthlySalesPages";
 import PredictPages from "./pages/PredictPages";
+import NotFoundPages from "./pages/NotFoundPages";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 function App() {
@@ -68,6 +69,9 @@ function App() {
               </ProtectedRoute>
             }
           />
+
+          {/* Not Found Route */}
+          <Route path="*" element={<NotFoundPages />} />
         </Routes>
       </TooltipProvider>
     </BrowserRouter>

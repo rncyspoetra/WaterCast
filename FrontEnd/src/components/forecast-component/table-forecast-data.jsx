@@ -55,21 +55,23 @@ const TableForecastData = ({ data }) => {
   return (
     <Card className="p-5 shadow-md ring-0 gap-3 h-full flex flex-col">
       <CardHeader className="flex flex-col items-start text-left px-3">
-        <CardTitle className="text-left font-bold text-xl text-gray-600">
+        <CardTitle className="font-bold text-base md:text-xl text-gray-600">
           Data Aktual vs Prediksi
         </CardTitle>
-        <CardDescription>
+        <CardDescription className="text-xs md:text-sm">
           Perbandingan data aktual dan hasil prediksi beserta nilai error
           berdasarkan bulan dan tahun.
         </CardDescription>
       </CardHeader>
 
-      <Table className="border-separate border-spacing-y-2">
+      <Table className="border-separate border-spacing-y-2 text-xs md:text-sm">
         <TableHeader>
           <TableRow className="bg-gray-100 ">
-            <TableHead className="text-center font-semibold text-gray-500 ">No</TableHead>
+            <TableHead className="text-center font-semibold text-gray-500 ">
+              No
+            </TableHead>
             <TableHead className="text-center font-semibold text-gray-500">
-              Bulan - Tahun
+              Bulan
             </TableHead>
             <TableHead className="text-center font-semibold text-gray-500">
               Data Aktual
@@ -77,7 +79,9 @@ const TableForecastData = ({ data }) => {
             <TableHead className="text-center font-semibold text-gray-500">
               Hasil Prediksi
             </TableHead>
-            <TableHead className="text-center font-semibold text-gray-500">Error</TableHead>
+            <TableHead className="text-center font-semibold text-gray-500">
+              Error
+            </TableHead>
           </TableRow>
         </TableHeader>
 
@@ -163,6 +167,6 @@ const TableForecastData = ({ data }) => {
       </Pagination>
     </Card>
   );
-}
+};
 
 export default TableForecastData;

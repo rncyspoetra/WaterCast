@@ -8,12 +8,12 @@ import {
 } from "../../services/MonthlySalesService";
 
 export const useMonthlySalesQuery = () => {
-  const { token } = useSelector((state) => state.auth);
+  const { token, user } = useSelector((state) => state.auth);
 
   return useQuery({
     queryKey: ["monthly-sales", token],
     queryFn: () => getMonthlySalesData(token),
-    enabled: !!token,
+    enabled: !!token && !!user,
   });
 };
 

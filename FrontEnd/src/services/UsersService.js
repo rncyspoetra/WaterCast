@@ -1,64 +1,30 @@
-import axios from "axios";
-import { useSelector } from "react-redux";
+import api from "../helpers/interceptors";
 
-export const getUsersData = async (token) => {
-  const res = await axios.get(`${import.meta.env.VITE_API_URL}users`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-    withCredentials: true,
-  });
+export const getUsersData = async () => {
+  const res = await api.get("users");
 
   return res.data.data;
 };
 
-export const getUsersDataById = async (token, id) => {
-  const res = await axios.get(`${import.meta.env.VITE_API_URL}users/${id}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-    withCredentials: true,
-  });
+export const getUsersDataById = async (id) => {
+  const res = await api.get(`users/${id}`);
 
   return res.data.data;
 };
 
-export const deleteUsers = async (id, token) => {
-  const res = await axios.delete(`${import.meta.env.VITE_API_URL}users/${id}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-    withCredentials: true,
-  });
+export const deleteUsers = async (id) => {
+  const res = await api.delete(`users/${id}`);
 
   return res.data;
 };
 
-export const createUsers = async ({ payload, token }) => {
-  const res = await axios.post(
-    `${import.meta.env.VITE_API_URL}users`,
-    payload,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-      withCredentials: true,
-    },
-  );
+export const createUsers = async ({ payload }) => {
+  const res = await api.post("users", payload);
   return res.data;
 };
 
-export const updateUsers = async (id, data, token) => {
-  const res = await axios.patch(
-    `${import.meta.env.VITE_API_URL}users/${id}`,
-    data,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-      withCredentials: true,
-    },
-  );
+export const updateUsers = async (id, data) => {
+  const res = await api.patch(`users/${id}`, data);
 
   return res.data;
 };

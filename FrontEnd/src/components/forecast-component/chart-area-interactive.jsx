@@ -66,10 +66,10 @@ const ChartAreaInteractive = ({ data }) => {
   return (
     <Card className="ring-0 shadow-xl h-full">
       <CardHeader>
-        <CardTitle className="font-bold text-xl text-gray-600">
+        <CardTitle className="font-bold  text-base md:text-xl text-gray-600">
           Analisis Peramalan
         </CardTitle>
-        <CardDescription>
+        <CardDescription className="text-xs md:text-sm">
           Tren prediksi permintaan berdasarkan data penjualan historis.
         </CardDescription>
       </CardHeader>
@@ -82,7 +82,7 @@ const ChartAreaInteractive = ({ data }) => {
           <AreaChart
             accessibilityLayer
             data={chartData}
-            margin={{ left: 12, right: 12 }}
+            margin={{ left: 0, right: 12 }}
           >
             <defs>
               <linearGradient id="forecastGradient" x1="0" y1="0" x2="0" y2="1">

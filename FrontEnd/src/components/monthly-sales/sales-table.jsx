@@ -60,7 +60,7 @@ const PenjualanTable = ({ data, isLoading, onEdit }) => {
 
   return (
     <Card className="p-5 shadow-md gap-3 flex flex-col ring-0">
-      <Table>
+      <Table className="text-xs md:text-sm">
         <TableHeader>
           <TableRow className="bg-gray-100 rounded-l-lg">
             <TableHead className="text-center font-bold text-gray-500">
@@ -89,13 +89,18 @@ const PenjualanTable = ({ data, isLoading, onEdit }) => {
               <TableCell>{item.total}</TableCell>
 
               <TableCell className="space-x-2">
-                <Button variant="outline" onClick={() => onEdit(item)}>
+                <Button
+                  variant="outline"
+                  onClick={() => onEdit(item)}
+                  className="text-xs md:text-sm px-3 md:px-4 py-2"
+                >
                   Edit
                 </Button>
 
                 <Button
                   variant="destructive"
                   onClick={() => handleDelete(item.id_penjualan_bulanan)}
+                  className="text-xs md:text-sm px-3 md:px-4 py-2"
                 >
                   Delete
                 </Button>

@@ -10,10 +10,9 @@ const ProtectedRoute = ({ children }) => {
   const { token, user, isLoading } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    if (token && !user) {
-      dispatch(getMe());
-    }
-  }, [token, user, dispatch]);
+    dispatch(getMe());
+    console.log("Protected Route");
+  }, [dispatch]);
   if (!token) {
     return <Navigate to="/" replace />;
   }
@@ -21,6 +20,7 @@ const ProtectedRoute = ({ children }) => {
   if (isLoading || (token && !user)) {
     return <LoadingHandler />;
   }
+
   return children;
 };
 

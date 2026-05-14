@@ -12,24 +12,24 @@ const MonthlySales = () => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(null);
 
-  const { data, isLoading, isError, error } = useMonthlySalesQuery();
+  const { data, isLoading } = useMonthlySalesQuery();
 
   if (isLoading) return <LoadingHandler />;
-  if (isError) return <div>Error: {error?.message}</div>;
-
-  console.log(data);
 
   return (
     <MainLayout>
       <div className="p-6 space-y-4">
         <div className="flex justify-between items-center">
-          <h1 className="text-xl font-bold">Penjualan Bulanan</h1>
+          <h1 className="text-sm md:text-base font-semibold">
+            Penjualan Bulanan
+          </h1>
 
           <Button
             onClick={() => {
               setSelected(null);
               setOpen(true);
             }}
+            className="text-xs md:text-sm px-3 md:px-4 py-2"
           >
             + Tambah Data
           </Button>

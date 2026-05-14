@@ -8,12 +8,17 @@ import {
 } from "../../services/DailySalesService";
 
 export const useDailySalesQuery = () => {
-  const { token } = useSelector((state) => state.auth);
+  const { token, user } = useSelector((state) => state.auth);
 
   return useQuery({
     queryKey: ["daily-sales", token],
     queryFn: () => getDailySalesData(token),
-    enabled: !!token,
+    enabled: !!token && !!user,
+    retry: false,
+
+    onError: (error) => {
+      console.log("Masuk Error : ", error);
+    },
   });
 };
 

@@ -58,12 +58,12 @@ const ChartPieDonutText = ({ data }) => {
   }, [chartData]);
 
   return (
-    <Card className="flex flex-col ring-0 shadow-md">
+    <Card className="p-5 flex flex-col ring-0 shadow-md">
       <CardHeader className="flex flex-col items-start text-left px-3">
-        <CardTitle className="text-left font-bold text-xl text-gray-600">
+        <CardTitle className="font-bold text-base md:text-xl text-gray-600">
           Rata-rata Penjualan per Bulan
         </CardTitle>
-        <CardDescription>
+        <CardDescription className="text-xs md:text-sm">
           Distribusi rata-rata penjualan tiap bulan
         </CardDescription>
       </CardHeader>
@@ -121,12 +121,12 @@ const ChartPieDonutText = ({ data }) => {
         <div className="flex items-center gap-2 font-medium">
           Distribusi Penjualan Bulanan
         </div>
-        <div className="text-muted-foreground text-center">
+        <div className="text-muted-foreground text-center text-xs md:text-sm">
           Data berdasarkan rata-rata penjualan bulanan
         </div>
       </CardFooter>
     </Card>
   );
-}
+};
 
 export default ChartPieDonutText;
