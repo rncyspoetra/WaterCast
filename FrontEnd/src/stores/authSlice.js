@@ -49,8 +49,6 @@ export const LogOut = createAsyncThunk("user/LogOut", async () => {
   await axios.delete(`${import.meta.env.VITE_API_URL}auth/logout`, {
     withCredentials: true,
   });
-
-  console.log("Dispatch Logout");
 });
 
 export const authSlice = createSlice({

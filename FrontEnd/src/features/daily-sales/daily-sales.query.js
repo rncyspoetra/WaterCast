@@ -15,10 +15,6 @@ export const useDailySalesQuery = () => {
     queryFn: () => getDailySalesData(token),
     enabled: !!token && !!user,
     retry: false,
-
-    onError: (error) => {
-      console.log("Masuk Error : ", error);
-    },
   });
 };
 

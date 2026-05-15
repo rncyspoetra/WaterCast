@@ -20,12 +20,10 @@ export function SiteHeader() {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    console.log("Klik Logout");
     dispatch(reset());
     await dispatch(LogOut());
 
     navigate("/", { replace: true });
-    console.log("Navigate ke Login");
   };
 
   return (

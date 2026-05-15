@@ -11,7 +11,6 @@ const ProtectedRoute = ({ children }) => {
 
   useEffect(() => {
     dispatch(getMe());
-    console.log("Protected Route");
   }, [dispatch]);
   if (!token) {
     return <Navigate to="/" replace />;
