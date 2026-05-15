@@ -31,13 +31,13 @@ const TopRecentTransactions = ({ data }) => {
       <Table className="border-separate border-spacing-y-2">
         <TableHeader>
           <TableRow>
-            <TableHead className="text-gray-400 text-sm md:text-base font-semibold">
+            <TableHead className="text-gray-400 text-sm md:text-base font-medium">
               No
             </TableHead>
-            <TableHead className="text-gray-400 text-sm md:text-base font-semibold">
+            <TableHead className="text-gray-400 text-sm md:text-base font-medium">
               Date
             </TableHead>
-            <TableHead className="text-gray-400 text-sm md:text-base font-semibold">
+            <TableHead className="text-gray-400 text-sm md:text-base font-medium">
               Sold
             </TableHead>
           </TableRow>
@@ -46,13 +46,13 @@ const TopRecentTransactions = ({ data }) => {
         <TableBody>
           {dataTable.map((item, index) => (
             <TableRow key={index} className="bg-white shadow-sm rounded-lg">
-              <TableCell className="font-semibold text-sm md:text-base text-black">
+              <TableCell className=" text-sm md:text-base">
                 {index + 1}
               </TableCell>
-              <TableCell className="font-semibold text-sm md:text-base text-black">
+              <TableCell className=" text-sm md:text-base">
                 {item.tanggal}
               </TableCell>
-              <TableCell className="font-semibold text-sm md:text-base text-black">
+              <TableCell className=" text-sm md:text-base">
                 {item.terjual}
               </TableCell>
             </TableRow>

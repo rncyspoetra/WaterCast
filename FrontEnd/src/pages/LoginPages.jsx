@@ -58,34 +58,34 @@ const LoginPages = () => {
 
   return (
     <AuthLayout>
-      <div className="text-center mb-6">
-        <img src={logo} alt="logo" className="w-24 mx-auto mb-3" />
-      </div>
-
-      <div className="space-y-4">
-        <div className="text-center ">
-          <h1 className="text-xl font-semibold">Sign In</h1>
-          <p className="text-sm text-gray-500">Masuk ke akun Anda</p>
+      <div className="flex flex-col gap-4 py-4">
+        <div className="text-center flex flex-col gap-2">
+          <img src={logo} alt="logo" className="w-18 md:w-24 mx-auto" />
+          <div className="text-center ">
+            <h1 className="text-lg md:text-xl font-semibold">Sign In</h1>
+            <p className="text-xs md:text-sm text-gray-500">
+              Masuk ke akun Anda
+            </p>
+          </div>
         </div>
 
-        <div className="space-y-3">
-          <Label>Username</Label>
+        <div className="space-y-0.5 md:space-y-1.5">
+          <Label className="text-xs md:text-base font-normal">Username</Label>
           <Input
             placeholder="Username"
             name="username"
-            className="border-gray-300 p-5 text-sm"
+            className="border-gray-300 p-5 text-xs md:text-sm"
             onChange={handleChange}
             required
           />
         </div>
-
-        <div className="space-y-3">
-          <Label>Password</Label>
+        <div className="space-y-0.5 md:space-y-1.5">
+          <Label className="text-xs md:text-base font-normal">Password</Label>
           <Input
             type="password"
             placeholder="Kata Sandi"
             name="password"
-            className="border-gray-300 p-5 text-sm"
+            className="border-gray-300 p-5 text-xs md:text-sm"
             onChange={handleChange}
             required
           />
@@ -95,7 +95,7 @@ const LoginPages = () => {
           type="submit"
           onClick={handleLogin}
           disabled={isLoading}
-          className="w-full bg-gradient-to-r from-indigo-900 to-indigo-600  text-white"
+          className="w-full bg-linear-to-r from-indigo-900 to-indigo-600  text-white"
         >
           {isLoading ? (
             <>

@@ -67,7 +67,7 @@ const PenjualanTable = ({ data, isLoading, onEdit }) => {
               No
             </TableHead>
             <TableHead className="text-center font-bold text-gray-500">
-              Bulan - Tahun
+              Bulan
             </TableHead>
             <TableHead className="text-center font-bold text-gray-500">
               Total

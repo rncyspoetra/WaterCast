@@ -7,8 +7,13 @@ import UsersPages from "./pages/UsersPages";
 import DailySalesPages from "./pages/DailySalesPages";
 import MonthlySalesPages from "./pages/MonthlySalesPages";
 import PredictPages from "./pages/PredictPages";
-import NotFoundPages from "./pages/NotFoundPages";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import {
+  Unauthorized401,
+  Forbidden403,
+  NotFound404,
+  Error500,
+} from "./components/ErrorComponent";
 
 function App() {
   return (
@@ -70,8 +75,17 @@ function App() {
             }
           />
 
+          {/* Forbidden Route */}
+          <Route path="/403" element={<Forbidden403 />} />
+
+          {/* Unauthorized Route */}
+          <Route path="/401" element={<Unauthorized401 />} />
+
+          {/* Internal Server Error Route */}
+          <Route path="/500" element={<Error500 />} />
+
           {/* Not Found Route */}
-          <Route path="*" element={<NotFoundPages />} />
+          <Route path="*" element={<NotFound404 />} />
         </Routes>
       </TooltipProvider>
     </BrowserRouter>

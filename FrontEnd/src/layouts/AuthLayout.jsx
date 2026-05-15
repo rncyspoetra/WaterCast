@@ -9,7 +9,7 @@ const AuthLayout = ({ children }) => {
         style={{ backgroundImage: `url(${background})` }}
       />
       <div className="absolute inset-0 bg-white/30" />
-      <div className="relative md:w-full max-w-md md:min-h-[550px] rounded-xl  bg-white px-6 py-6 md:p-10 shadow-2xl flex flex-col justify-center">
+      <div className="relative w-full mx-4 md:w-full md:mx-0 max-w-md rounded-xl bg-white p-6 md:p-8 shadow-2xl flex flex-col">
         {children}
       </div>
     </div>
