@@ -118,7 +118,7 @@ const ChartPieDonutText = ({ data }) => {
       </CardContent>
 
       <CardFooter className="flex-col gap-2 text-sm">
-        <div className="flex items-center gap-2 font-medium">
+        <div className="flex items-center text-center gap-2 font-medium">
           Distribusi Penjualan Bulanan
         </div>
         <div className="text-muted-foreground text-center text-xs md:text-sm">

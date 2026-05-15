@@ -3,13 +3,14 @@ import SectionCards from "../components/dashboard-component/section-cards";
 import ChartAreaInteractive from "../components/dashboard-component/chart-area-interactive";
 import TopRecentTransactions from "../components/dashboard-component/top-recent-transactions";
 import InsightSales from "../components/dashboard-component/insight-sales-section";
+import DashboardSkeleton from "../components/dashboard-component/dashboard-skeleton";
+
 import { useDashboardQuery } from "../features/dashboard/dashboard.query";
-import LoadingHandler from "../components/LoadingHandler";
 
 const DashboardPages = () => {
   const { data, isLoading } = useDashboardQuery();
 
-  if (isLoading) return <LoadingHandler />;
+  if (isLoading) return <DashboardSkeleton />;
 
   return (
     <MainLayout>

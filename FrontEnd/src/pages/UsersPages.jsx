@@ -1,8 +1,7 @@
 import { useState } from "react";
 import MainLayout from "../layouts/MainLayout";
 import { Button } from "@/components/ui/button";
-import LoadingHandler from "../components/LoadingHandler";
-
+import UsersSkeleton from "../components/users/users-skeleton";
 import UsersTable from "../components/users/users-table";
 import UsersFormDialog from "../components/users/form-dialog";
 
@@ -14,7 +13,7 @@ const UsersPages = () => {
 
   const { data, isLoading } = useUsersQuery();
 
-  if (isLoading) return <LoadingHandler />;
+  if (isLoading) return <UsersSkeleton />;
 
   return (
     <MainLayout>

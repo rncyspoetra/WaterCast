@@ -1,8 +1,7 @@
 import { useState } from "react";
 import MainLayout from "../layouts/MainLayout";
 import { Button } from "@/components/ui/button";
-import LoadingHandler from "../components/LoadingHandler";
-
+import MonthlySalesSkeleton from "../components/monthly-sales/monthly-sales-skeleton";
 import PenjualanTable from "../components/monthly-sales/sales-table";
 import PenjualanFormDialog from "../components/monthly-sales/form-dialog";
 
@@ -14,7 +13,7 @@ const MonthlySales = () => {
 
   const { data, isLoading } = useMonthlySalesQuery();
 
-  if (isLoading) return <LoadingHandler />;
+  if (isLoading) return <MonthlySalesSkeleton />;
 
   return (
     <MainLayout>

@@ -3,15 +3,16 @@ import SectionCard from "../components/forecast-component/section-cards";
 import ChartAreaInteractive from "../components/forecast-component/chart-area-interactive";
 import TableForecastData from "../components/forecast-component/table-forecast-data";
 import ChartPieDonutText from "../components/forecast-component/pie-charts";
-import ForecastInsight from "../components/forecast-component/forecast-insight";
-import LoadingHandler from "../components/LoadingHandler";
-import { useForecastQuery } from "../features/forecast/forecast.query";
 import AccuracyInsight from "../components/forecast-component/accuracy-insight";
+import ForecastInsight from "../components/forecast-component/forecast-insight";
+import ForecastSkeleton from "../components/forecast-component/forecast-skeleton";
+
+import { useForecastQuery } from "../features/forecast/forecast.query";
 
 const PredictPages = () => {
   const { data, isLoading } = useForecastQuery();
 
-  if (isLoading) return <LoadingHandler />;
+  if (isLoading) return <ForecastSkeleton />;
 
   return (
     <MainLayout>
@@ -20,15 +21,15 @@ const PredictPages = () => {
         <div className="w-full">
           <ChartAreaInteractive data={data} />
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
-          <div className="lg:col-span-2 h-full">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 items-stretch">
+          <div className="xl:col-span-2 h-full">
             <TableForecastData data={data} />
           </div>
-          <div className="lg:col-span-1 h-full">
+          <div className="xl:col-span-1 h-full">
             <ChartPieDonutText data={data} />
           </div>
         </div>
-        <div className="flex flex-col md:flex-row gap-3 w-full h-auto">
+        <div className="flex flex-col xl:flex-row gap-3 w-full h-auto">
           <div>
             <ForecastInsight data={data} />
           </div>

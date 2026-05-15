@@ -1,7 +1,7 @@
 import { useState } from "react";
 import MainLayout from "../layouts/MainLayout";
 import { Button } from "@/components/ui/button";
-import LoadingHandler from "../components/LoadingHandler";
+import DailySalesSkeleton from "../components/daily-sales/daily-sales-skeleton";
 
 import PenjualanTable from "../components/daily-sales/sales-table";
 import PenjualanFormDialog from "../components/daily-sales/form-dialog";
@@ -13,7 +13,7 @@ const DailySales = () => {
 
   const { data, isLoading } = useDailySalesQuery();
 
-  if (isLoading) return <LoadingHandler />;
+  if (isLoading) return <DailySalesSkeleton />;
 
   return (
     <MainLayout>
